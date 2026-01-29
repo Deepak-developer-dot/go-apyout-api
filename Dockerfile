@@ -1,7 +1,19 @@
+# Build stage
+FROM golang:1.22-alpine AS builder
 
-- name: Build and Push Docker Image
-  uses: docker/build-push-action@v5
-  with:
-    context: ./backend
-    push: true
-    tags: 9534/payout-api:latest
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN go build -o payout-api
+
+# Run stage
+FROM alpine:latest
+
+WORKDIR /app
+COPY --from=builder /app/payout-api .
+
+EXPOSE 8080
+CMD ["./payout-api"]
