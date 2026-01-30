@@ -17,8 +17,8 @@ RUN go build -o payout-api
 FROM alpine:latest
 RUN apk add --no-cache ca-certificates
 
-WORKDIR /app
-COPY --from=builder /app/payout-api .
+WORKDIR /
+COPY --from=builder /payout-api .
 
 EXPOSE 8080
 CMD ["./payout-api"]
