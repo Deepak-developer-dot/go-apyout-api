@@ -7,7 +7,7 @@ WORKDIR /app
 ENV GOPROXY=https://proxy.golang.org,direct
 
 COPY go.mod go.sum ./
-RUN go mod download
+RUN go mod download -x
 
 COPY . .
 RUN go build -o payout-api
