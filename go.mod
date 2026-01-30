@@ -1,14 +1,10 @@
 module payout-backend
 
-go 1.24.4
+go 1.22
 
 require (
-	gorm.io/driver/postgres v1.6.0
+    gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.31.1
-)
-
-require (
-    github.com/gin-gonic/gin v1.9.1
 	github.com/bytedance/sonic v1.14.0 // indirect
 	github.com/bytedance/sonic/loader v0.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
