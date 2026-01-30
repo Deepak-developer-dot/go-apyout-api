@@ -1,6 +1,7 @@
 module payout-backend
 
-go 1.22
+go 1.23
+
 
 require (
     gorm.io/driver/postgres v1.6.0
