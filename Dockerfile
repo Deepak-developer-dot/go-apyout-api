@@ -8,7 +8,7 @@ WORKDIR /
 ENV GOPROXY=https://proxy.golang.org,direct
 
 COPY go.mod go.sum ./
-RUN cat go.mod && echo "----" && go env && echo "----" && go mod download -x
+# RUN cat go.mod && echo "----" && go env && echo "----" && go mod download -x
 
 COPY . .
 RUN go build -o payout-api
